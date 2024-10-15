@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "127930582561",
+    "project_id": "rcc-practice",
+    "storage_bucket": "rcc-practice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127930582561:android:1776a7af46674fe7aec560",
+        "android_client_info": {
+          "package_name": "com.kinsideapp.rcc_firebase_news"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwlAR5RP01-o1KFkuUvfsWN259s9ZUGP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
