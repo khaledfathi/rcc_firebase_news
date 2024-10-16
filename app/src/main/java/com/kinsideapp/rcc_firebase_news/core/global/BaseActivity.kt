@@ -42,7 +42,7 @@ open class BaseActivity : AppCompatActivity() {
                     viewGroup.requestLayout()
                 } else {
                     // Keyboard is closed
-                    viewGroup.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+                    viewGroup.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
                     viewGroup.requestLayout()
                 }
             }

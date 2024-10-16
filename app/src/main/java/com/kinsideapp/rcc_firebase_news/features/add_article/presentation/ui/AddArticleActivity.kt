@@ -13,6 +13,10 @@ import com.kinsideapp.rcc_firebase_news.R
 import com.kinsideapp.rcc_firebase_news.core.global.BaseActivity
 import com.kinsideapp.rcc_firebase_news.databinding.ActivityAddArticleBinding
 import com.kinsideapp.rcc_firebase_news.features.add_article.presentation.viewmodel.AddArticleActivityViewModel
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class AddArticleActivity : BaseActivity() {
     private lateinit var _binding: ActivityAddArticleBinding
@@ -32,10 +36,9 @@ class AddArticleActivity : BaseActivity() {
         init()
     }
 
-
     /***** CORE *****/
     private fun init() {
-//        resizeOnKeyboardOpen(_binding.main)
+        resizeOnKeyboardOpen(_binding.main)
         setEvents()
     }
 
