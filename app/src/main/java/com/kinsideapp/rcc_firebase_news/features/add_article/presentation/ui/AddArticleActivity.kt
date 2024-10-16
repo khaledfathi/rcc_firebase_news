@@ -6,17 +6,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.kinsideapp.rcc_firebase_news.R
 import com.kinsideapp.rcc_firebase_news.core.global.BaseActivity
 import com.kinsideapp.rcc_firebase_news.databinding.ActivityAddArticleBinding
 import com.kinsideapp.rcc_firebase_news.features.add_article.presentation.viewmodel.AddArticleActivityViewModel
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class AddArticleActivity : BaseActivity() {
     private lateinit var _binding: ActivityAddArticleBinding
@@ -37,13 +33,30 @@ class AddArticleActivity : BaseActivity() {
     }
 
 
+    /***** CORE *****/
     private fun init() {
+//        resizeOnKeyboardOpen(_binding.main)
         setEvents()
     }
 
     private fun setEvents() {
+        eventFormHolderClick()
+        eventNavigationButtonClick()
         eventImageButtonClick()
         eventSendButtonClick()
+    }
+    /***** -END- CORE *****/
+
+    /***** EVENTS *****/
+    private fun eventFormHolderClick() {
+        _binding.formHolder.setOnClickListener {
+            actionClearInputsFoucs()
+            hideKeyboard(_binding.formHolder)
+        }
+    }
+
+    private fun eventNavigationButtonClick() {
+        _binding.toolBar.setNavigationOnClickListener { finish() }
     }
 
     private fun eventImageButtonClick() {
@@ -59,27 +72,37 @@ class AddArticleActivity : BaseActivity() {
             }
         //event
         _binding.imageButton.setOnClickListener {
+            actionClearInputsFoucs()
             handleReceiveImage.launch("image/*")
         }
     }
 
     private fun eventSendButtonClick() {
-        _binding.sendButton.setOnClickListener {
-            _binding.progressBar.isVisible = true
+        _binding.toolBar.menu[0].setOnMenuItemClickListener {
+            _binding.progress.isVisible = true
             _viewModel.addArticle(
                 title = _binding.title.text.toString(),
                 article = _binding.article.text.toString(),
                 image = _imageUri?.toString() ?: "",
                 onSuccess = { successMessage ->
-                    _binding.progressBar.isVisible = false
+                    _binding.progress.isVisible = false
                     showToastShort(successMessage)
                 },
                 onFailure = { error ->
-                    _binding.progressBar.isVisible = false
+                    _binding.progress.isVisible = false
                     showToastShort(error)
                 }
             )
+            true
         }
     }
+    /***** -END- EVENTS *****/
+
+    /***** EVENT ACTIONS *****/
+    private fun actionClearInputsFoucs() {
+        if (_binding.title.isFocused) _binding.article.clearFocus()
+        if (_binding.article.isFocused) _binding.article.clearFocus()
+    }
+    /***** -END- EVENT ACTIONS *****/
 
 }

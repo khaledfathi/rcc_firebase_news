@@ -2,7 +2,9 @@ package com.kinsideapp.rcc_firebase_news.core.route
 
 import android.content.Context
 import com.kinsideapp.rcc_firebase_news.features.add_article.presentation.ui.AddArticleActivity
-import com.kinsideapp.rcc_firebase_news.features.news.presentation.ui.NewsActivity
+import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.ArticleEntity
+import com.kinsideapp.rcc_firebase_news.features.news.presentation.ui.article_activity.ArticleActivity
+import com.kinsideapp.rcc_firebase_news.features.news.presentation.ui.news_activity.NewsActivity
 
 class RouteToAddArticle(context: Context) : Route(context) {
     override fun destination() = AddArticleActivity::class.java
@@ -10,4 +12,11 @@ class RouteToAddArticle(context: Context) : Route(context) {
 
 class RouteToNews(context: Context) : Route(context) {
     override fun destination() = NewsActivity::class.java
+}
+
+class RouteToArticle(context: Context) : Route(context) {
+    companion object{
+        var article: ArticleEntity? = null
+    }
+    override fun destination() = ArticleActivity::class.java
 }

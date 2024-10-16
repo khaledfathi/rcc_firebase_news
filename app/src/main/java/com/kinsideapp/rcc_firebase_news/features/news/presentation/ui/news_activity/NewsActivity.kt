@@ -1,20 +1,13 @@
-package com.kinsideapp.rcc_firebase_news.features.news.presentation.ui
+package com.kinsideapp.rcc_firebase_news.features.news.presentation.ui.news_activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.kinsideapp.rcc_firebase_news.core.global.BaseActivity
-import com.kinsideapp.rcc_firebase_news.core.global.FIREBASE_COLLECTION
 import com.kinsideapp.rcc_firebase_news.databinding.ActivityNewsBinding
-import com.kinsideapp.rcc_firebase_news.features.add_article.domain.entity.ArticleEntity
-import com.kinsideapp.rcc_firebase_news.features.news.presentation.activity.NewsListAdapter
 import com.kinsideapp.rcc_firebase_news.features.news.presentation.viewmodel.NewsActivityViewModel
 
 class NewsActivity : BaseActivity() {
@@ -35,6 +28,11 @@ class NewsActivity : BaseActivity() {
     }
 
     private fun init() {
+        readAndSetNewsList()
+        eventNavigationButtonClick()
+    }
+
+    private fun readAndSetNewsList() {
         _binding.progressBar.isVisible = true
         _viewModel.getNews(
             onSuccess = { news ->
@@ -46,6 +44,11 @@ class NewsActivity : BaseActivity() {
                 _binding.progressBar.isVisible = false
             }
         )
+
+    }
+
+    private fun eventNavigationButtonClick() {
+        _binding.toolBar.setOnClickListener { finish() }
     }
 
 }

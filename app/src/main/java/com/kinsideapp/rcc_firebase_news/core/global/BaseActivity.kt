@@ -1,5 +1,6 @@
 package com.kinsideapp.rcc_firebase_news.core.global
 
+import android.content.res.Configuration
 import android.graphics.Rect
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,7 @@ open class BaseActivity : AppCompatActivity() {
      * dismiss keyboard
      * @param view view that making request to hide keyboard
      */
-    fun hideKeyboard(view :View) {
+    fun hideKeyboard(view: View) {
         //imm = input method manager
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
@@ -24,22 +25,26 @@ open class BaseActivity : AppCompatActivity() {
     /**
      * Resize on keyboard open
      * resize screen scroll view when keyboard appears on screen
-     * @param scrollView
+     * @param viewGroup
      */
-    fun resizeOnKeyboardOpen(scrollView: ScrollView) {
-        scrollView.viewTreeObserver.addOnGlobalLayoutListener {
-            val rect = Rect()
-            scrollView.getWindowVisibleDisplayFrame(rect) // visible height without keyboard
-            val heightDifference = scrollView.rootView.height - rect.bottom
-            if (heightDifference > 100) { // Adjust the threshold as needed
-                // Keyboard is open
-                scrollView.layoutParams.height =
-                    scrollView.rootView.height - heightDifference  // you can subtract padding as needed for more Adjustments
-                scrollView.requestLayout()
-            } else {
-                // Keyboard is closed
-                scrollView.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
-                scrollView.requestLayout()
+    fun resizeOnKeyboardOpen(viewGroup: ViewGroup) {
+        val orientation = resources.configuration.orientation
+
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            viewGroup.viewTreeObserver.addOnGlobalLayoutListener {
+                val rect = Rect()
+                viewGroup.getWindowVisibleDisplayFrame(rect) // visible height without keyboard
+                val heightDifference = viewGroup.rootView.height - rect.bottom
+                if (heightDifference > 100) { // Adjust the threshold as needed
+                    // Keyboard is open
+                    viewGroup.layoutParams.height =
+                        viewGroup.rootView.height - heightDifference  // you can subtract padding as needed for more Adjustments
+                    viewGroup.requestLayout()
+                } else {
+                    // Keyboard is closed
+                    viewGroup.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+                    viewGroup.requestLayout()
+                }
             }
         }
     }

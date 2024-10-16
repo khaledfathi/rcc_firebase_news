@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/article_card"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="200dp"
     android:layout_margin="10dp"
     android:elevation="10dp"
     app:cardCornerRadius="20dp">
@@ -14,14 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="article image"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         tools:src="@tools:sample/avatars" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
-        android:alpha="0.4"
+        android:alpha="0.7"
         android:background="@color/black">
 
         <TextView
