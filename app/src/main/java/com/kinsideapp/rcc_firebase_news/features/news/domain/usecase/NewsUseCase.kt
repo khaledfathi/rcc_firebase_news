@@ -1,17 +1,14 @@
 package com.kinsideapp.rcc_firebase_news.features.news.domain.usecase
 
-import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.NewsEntity
+import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.ArticleEntity
+import com.kinsideapp.rcc_firebase_news.features.news.domain.repository.NewsRepository
 
-class NewsUseCase {
-    fun getAllNews(): NewsEntity {
-        return NewsEntity()
+class NewsUseCase(private val repository: NewsRepository) {
+    fun getAllNews(
+        onSuccess: (newsList: List<ArticleEntity>) -> Unit,
+        onFailure: (error: String) -> Unit
+    ) {
+        repository.getAllNews(onSuccess, onFailure)
     }
 
-    fun deleteArticle(articleId: String) {
-
-    }
-
-    fun deleteAllArticles() {
-
-    }
 }

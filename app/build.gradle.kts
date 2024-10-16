@@ -50,6 +50,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    //view scopes coroutine
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+//    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
     //glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     //firebase
@@ -58,4 +61,5 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-storage")
     implementation("com.google.firebase:firebase-firestore")
+
 }
