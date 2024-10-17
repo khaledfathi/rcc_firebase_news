@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.kinsideapp.rcc_firebase_news.core.global.BaseActivity
 import com.kinsideapp.rcc_firebase_news.core.route.RouteToAddArticle
+import com.kinsideapp.rcc_firebase_news.core.route.RouteToCamera
 import com.kinsideapp.rcc_firebase_news.core.route.RouteToNews
 import com.kinsideapp.rcc_firebase_news.databinding.ActivityHomeBinding
 
@@ -29,6 +30,7 @@ class HomeActivity : BaseActivity() {
     private fun setEvents() {
         eventAddArticleButtonClick()
         eventNewsButtonClick()
+        eventGoToTestScreen()
     }
 
     private fun eventNewsButtonClick() {
@@ -37,6 +39,12 @@ class HomeActivity : BaseActivity() {
 
     private fun eventAddArticleButtonClick() {
         _binding.addArticleButton.setOnClickListener { RouteToAddArticle(this).navigate() }
+    }
+
+    private fun eventGoToTestScreen() {
+        _binding.testButton.setOnClickListener {
+            RouteToCamera(this).navigate()
+        }
     }
 
 }

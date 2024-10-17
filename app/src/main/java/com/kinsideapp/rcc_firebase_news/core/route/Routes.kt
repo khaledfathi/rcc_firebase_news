@@ -2,6 +2,7 @@ package com.kinsideapp.rcc_firebase_news.core.route
 
 import android.content.Context
 import com.kinsideapp.rcc_firebase_news.features.add_article.presentation.ui.AddArticleActivity
+import com.kinsideapp.rcc_firebase_news.features.camera_x.presentation.ui.CameraActivity
 import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.ArticleEntity
 import com.kinsideapp.rcc_firebase_news.features.news.presentation.ui.article.ArticleActivity
 import com.kinsideapp.rcc_firebase_news.features.news.presentation.ui.news.NewsActivity
@@ -20,3 +21,9 @@ class RouteToArticle(context: Context) : Route(context) {
     }
     override fun destination() = ArticleActivity::class.java
 }
+
+/***** FOR TEST *****/
+class RouteToCamera(context: Context) : Route(context) {
+    override fun destination() = CameraActivity::class.java
+}
+/***** -END- FOR TEST *****/
