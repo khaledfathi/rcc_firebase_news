@@ -8,6 +8,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ScrollView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -49,6 +51,34 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
+
+    /**
+     * Item touch on swipe
+     * action on swipe on [recyclerView]
+     * @param recyclerView target element
+     * @param direction direction of swipe (right or left)
+     * @param action
+     * @receiver
+     */
+    fun itemTouchOnSwipe(
+        recyclerView: RecyclerView,
+        direction: Int = ItemTouchHelper.RIGHT or ItemTouchHelper.RIGHT,
+        action: (position: Int) -> Unit
+    ) {
+        val itemTouchCallback: ItemTouchHelper.SimpleCallback = object :
+            ItemTouchHelper.SimpleCallback(0, direction) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ) = false
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) =
+                action(viewHolder.adapterPosition)
+
+        }
+        ItemTouchHelper(itemTouchCallback).attachToRecyclerView(recyclerView)
+    }
 
     /***** SHOWING ON UI *****/
     fun showToastShort(msg: String) {

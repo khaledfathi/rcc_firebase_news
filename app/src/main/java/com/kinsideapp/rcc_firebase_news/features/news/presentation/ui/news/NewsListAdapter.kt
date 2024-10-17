@@ -1,4 +1,4 @@
-package com.kinsideapp.rcc_firebase_news.features.news.presentation.ui.news_activity
+package com.kinsideapp.rcc_firebase_news.features.news.presentation.ui.news
 
 import android.app.Activity
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kinsideapp.rcc_firebase_news.R
-import com.kinsideapp.rcc_firebase_news.core.route.RouteToAddArticle
 import com.kinsideapp.rcc_firebase_news.core.route.RouteToArticle
 import com.kinsideapp.rcc_firebase_news.databinding.ArticleCardBinding
 import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.ArticleEntity

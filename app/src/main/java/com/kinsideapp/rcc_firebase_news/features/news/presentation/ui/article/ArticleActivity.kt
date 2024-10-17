@@ -1,4 +1,4 @@
-package com.kinsideapp.rcc_firebase_news.features.news.presentation.ui.article_activity
+package com.kinsideapp.rcc_firebase_news.features.news.presentation.ui.article
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

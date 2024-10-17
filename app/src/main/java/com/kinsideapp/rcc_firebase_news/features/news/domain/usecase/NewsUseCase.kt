@@ -11,4 +11,16 @@ class NewsUseCase(private val repository: NewsRepository) {
         repository.getAllNews(onSuccess, onFailure)
     }
 
+    fun deleteSingleNews(
+        newsId: String,
+        onSuccess: () -> Unit,
+        onFailure: (error: String) -> Unit
+    ) {
+        repository.deleteSingleNews(
+            newsId,
+            onSuccess,
+            onFailure,
+        )
+    }
+
 }

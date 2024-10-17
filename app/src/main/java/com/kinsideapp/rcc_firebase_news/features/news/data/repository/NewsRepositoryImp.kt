@@ -1,7 +1,9 @@
 package com.kinsideapp.rcc_firebase_news.features.news.data.repository
 
+import androidx.core.view.isVisible
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import com.kinsideapp.rcc_firebase_news.core.global.FIREBASE_COLLECTION
 import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.ArticleEntity
 import com.kinsideapp.rcc_firebase_news.features.news.domain.repository.NewsRepository
@@ -15,20 +17,28 @@ class NewsRepositoryImp : NewsRepository {
             .collection(FIREBASE_COLLECTION)
             .get()
             .addOnSuccessListener { records ->
-                val news = mutableListOf<ArticleEntity>()
-                for (record in records) {
-                    news.add(
-                        ArticleEntity(
-                            id = record.id,
-                            title = record.data["title"].toString(),
-                            article = record.data["article"].toString(),
-                            image = record.data["image"].toString(),
-                        )
-                    )
-                }
-                onSuccess(news)
+                onSuccess(records.toObjects(ArticleEntity::class.java))
             }
-            .addOnFailureListener { onFailure("Fail to read news") }
+            .addOnFailureListener { onFailure("Failed to read news") }
     }
+
+    override fun deleteSingleNews(
+        newsId: String,
+        onSuccess: () -> Unit,
+        onFailure: (error: String) -> Unit
+    ) {
+        val recordRef = Firebase.firestore.collection(FIREBASE_COLLECTION).document(newsId)
+        //read record to get image reference
+        recordRef.get().addOnSuccessListener {
+            val imageUrl = it.toObject(ArticleEntity::class.java)?.image ?: ""
+            //delete record
+            recordRef.delete().addOnSuccessListener {
+                //delete image
+                Firebase.storage.getReferenceFromUrl(imageUrl).delete()
+            }.addOnSuccessListener { onSuccess() }
+                .addOnFailureListener { onFailure("Failed to delete article !") }
+        }
+    }
+
 
 }

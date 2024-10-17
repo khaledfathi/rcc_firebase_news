@@ -12,4 +12,17 @@ class NewsActivityViewModel : ViewModel() {
     ) {
         NewsUseCase(NewsRepositoryImp()).getAllNews(onSuccess, onFailure)
     }
+
+    fun deleteSingleNews(
+        newsId: String,
+        onSuccess: () -> Unit,
+        onFailure: (error: String) -> Unit = {}
+    ) {
+        NewsUseCase(NewsRepositoryImp()).deleteSingleNews(
+            newsId,
+            onSuccess,
+            onFailure
+        )
+    }
+
 }

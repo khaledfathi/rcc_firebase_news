@@ -7,4 +7,6 @@ interface NewsRepository {
         onSuccess: (newsList: List<ArticleEntity>) -> Unit,
         onFailure: (error: String) -> Unit
     )
+
+    fun deleteSingleNews(newsId: String, onSuccess: () -> Unit, onFailure: (error: String) -> Unit)
 }

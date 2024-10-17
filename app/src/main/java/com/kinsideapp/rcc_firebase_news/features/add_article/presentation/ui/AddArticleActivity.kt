@@ -81,17 +81,22 @@ class AddArticleActivity : BaseActivity() {
     }
 
     private fun eventSendButtonClick() {
-        _binding.toolBar.menu[0].setOnMenuItemClickListener {
+        val saveButton = _binding.toolBar.menu[0]
+        saveButton.setOnMenuItemClickListener {
+            saveButton.isEnabled = false
+            hideKeyboard(_binding.toolBar)
             _binding.progress.isVisible = true
             _viewModel.addArticle(
                 title = _binding.title.text.toString(),
                 article = _binding.article.text.toString(),
                 image = _imageUri?.toString() ?: "",
                 onSuccess = { successMessage ->
+                    saveButton.isEnabled = true
                     _binding.progress.isVisible = false
                     showToastShort(successMessage)
                 },
                 onFailure = { error ->
+                    saveButton.isEnabled = true
                     _binding.progress.isVisible = false
                     showToastShort(error)
                 }
