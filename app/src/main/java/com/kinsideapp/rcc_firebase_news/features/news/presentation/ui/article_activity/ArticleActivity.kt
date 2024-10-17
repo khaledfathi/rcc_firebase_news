@@ -7,7 +7,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.kinsideapp.rcc_firebase_news.R
 import com.kinsideapp.rcc_firebase_news.core.route.RouteToArticle
 import com.kinsideapp.rcc_firebase_news.databinding.ActivityArticleBinding
 import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.ArticleEntity

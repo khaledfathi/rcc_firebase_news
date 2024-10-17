@@ -32,6 +32,7 @@
             android:layout_marginHorizontal="15dp"
             android:maxLines="1"
             android:textColor="@color/white"
+            android:ellipsize="end"
             android:textSize="20sp"
             tools:text="Title" />
     </FrameLayout>

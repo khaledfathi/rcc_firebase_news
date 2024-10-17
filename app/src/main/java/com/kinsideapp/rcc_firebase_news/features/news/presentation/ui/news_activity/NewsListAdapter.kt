@@ -26,7 +26,7 @@ class NewsListAdapter(private val activity: Activity, val data: List<ArticleEnti
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.view.title.text = data[position].title
-        Glide.with(activity).load(data[position].image).into(holder.view.image)
+        Glide.with(holder.view.root).load(data[position].image).into(holder.view.image)
             .onLoadFailed(AppCompatResources.getDrawable(activity, R.drawable.default_image))
         holder.view.articleCard.setOnClickListener {
             RouteToArticle.article = ArticleEntity(
