@@ -9,6 +9,7 @@ import com.kinsideapp.rcc_firebase_news.core.global.BaseActivity
 import com.kinsideapp.rcc_firebase_news.core.route.RouteToAddArticle
 import com.kinsideapp.rcc_firebase_news.core.route.RouteToCamera
 import com.kinsideapp.rcc_firebase_news.core.route.RouteToNews
+import com.kinsideapp.rcc_firebase_news.core.route.RouteToScreen
 import com.kinsideapp.rcc_firebase_news.databinding.ActivityHomeBinding
 
 class HomeActivity : BaseActivity() {
@@ -43,7 +44,7 @@ class HomeActivity : BaseActivity() {
 
     private fun eventGoToTestScreen() {
         _binding.testButton.setOnClickListener {
-            RouteToCamera(this).navigate()
+            RouteToScreen(this).navigate()
         }
     }
 
