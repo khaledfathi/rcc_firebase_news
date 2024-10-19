@@ -4,6 +4,7 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.get
@@ -47,10 +48,47 @@ class AddArticleActivity : BaseActivity() {
         eventNavigationButtonClick()
         eventImageButtonClick()
         eventSendButtonClick()
+        eventButtonOnSwipe()
     }
     /***** -END- CORE *****/
 
     /***** EVENTS *****/
+    private fun eventButtonOnSwipe() {
+        _binding.motionLayout.setTransitionListener(object:MotionLayout.TransitionListener{
+            override fun onTransitionStarted(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int
+            ) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onTransitionChange(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int,
+                progress: Float
+            ) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                if(motionLayout!!.progress == 1f){
+                }
+            }
+
+            override fun onTransitionTrigger(
+                motionLayout: MotionLayout?,
+                triggerId: Int,
+                positive: Boolean,
+                progress: Float
+            ) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
     private fun eventFormHolderClick() {
         _binding.formHolder.setOnClickListener {
             actionClearInputsFoucs()
