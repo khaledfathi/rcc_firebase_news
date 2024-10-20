@@ -7,10 +7,10 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.kinsideapp.rcc_firebase_news.core.global.BaseActivity
 import com.kinsideapp.rcc_firebase_news.databinding.ActivityNewsBinding
 import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.ArticleEntity
 import com.kinsideapp.rcc_firebase_news.features.news.presentation.viewmodel.NewsActivityViewModel
+import com.metro_driver.core.BaseActivity
 
 class NewsActivity : BaseActivity() {
     //for ui

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.kinsideapp.rcc_firebase_news.features.fragment_test.presentation.fragments.FirstFragment"
+        android:name="com.metro_driver.fragment.presentation.fragments.FirstFragment"
         android:label="fragment_first"
         tools:layout="@layout/fragment_first">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.kinsideapp.rcc_firebase_news.features.fragment_test.presentation.fragments.SecondFragment"
+        android:name="com.metro_driver.fragment.presentation.fragments.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second">
         <action
@@ -26,7 +26,7 @@
 
     <fragment
         android:id="@+id/thirdFragment"
-        android:name="com.kinsideapp.rcc_firebase_news.features.fragment_test.presentation.fragments.ThirdFragment"
+        android:name="com.metro_driver.fragment.presentation.fragments.ThirdFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_third" />
 </navigation>

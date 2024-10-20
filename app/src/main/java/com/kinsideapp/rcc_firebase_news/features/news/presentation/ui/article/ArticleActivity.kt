@@ -7,12 +7,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.kinsideapp.rcc_firebase_news.core.route.RouteToArticle
+import com.kinsideapp.rcc_firebase_news.core.RouteToArticle
 import com.kinsideapp.rcc_firebase_news.databinding.ActivityArticleBinding
 import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.ArticleEntity
 import com.kinsideapp.rcc_firebase_news.features.news.presentation.viewmodel.ArticleActivityViewModel
+import com.metro_driver.core.BaseActivity
 
-class ArticleActivity : AppCompatActivity() {
+class ArticleActivity : BaseActivity() {
     private lateinit var _binding: ActivityArticleBinding
     private lateinit var _viewModel: ArticleActivityViewModel
     private var _article: ArticleEntity? = null

@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "rcc_firebase_news"
 include(":app")
- 
+include(":fragment")
+include(":core")

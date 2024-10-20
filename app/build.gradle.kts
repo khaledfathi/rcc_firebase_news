@@ -50,6 +50,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    //local dependency
+    implementation(project(":core"))
+    implementation(project(":fragment"))
     //view scopes coroutine
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
 //    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")

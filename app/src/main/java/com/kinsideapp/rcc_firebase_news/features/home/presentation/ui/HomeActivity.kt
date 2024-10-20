@@ -2,15 +2,13 @@ package com.kinsideapp.rcc_firebase_news.features.home.presentation.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.kinsideapp.rcc_firebase_news.core.global.BaseActivity
-import com.kinsideapp.rcc_firebase_news.core.route.RouteToAddArticle
-import com.kinsideapp.rcc_firebase_news.core.route.RouteToCamera
-import com.kinsideapp.rcc_firebase_news.core.route.RouteToNews
-import com.kinsideapp.rcc_firebase_news.core.route.RouteToScreen
+import com.kinsideapp.rcc_firebase_news.core.RouteToAddArticle
+import com.kinsideapp.rcc_firebase_news.core.RouteToNews
+import com.kinsideapp.rcc_firebase_news.core.RouteToScreen
 import com.kinsideapp.rcc_firebase_news.databinding.ActivityHomeBinding
+import com.metro_driver.core.BaseActivity
 
 class HomeActivity : BaseActivity() {
     private lateinit var _binding: ActivityHomeBinding

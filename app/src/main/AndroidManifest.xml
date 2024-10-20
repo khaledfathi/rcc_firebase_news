@@ -21,7 +21,7 @@
         android:theme="@style/Theme.Rcc_firebase_news"
         tools:targetApi="31">
         <activity
-            android:name=".features.fragment_test.presentation.ScreenActivity"
+            android:name="com.metro_driver.fragment.presentation.ScreenActivity"
             android:exported="false" />
         <activity
             android:name=".features.camera_x.presentation.ui.CameraActivity"

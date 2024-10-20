@@ -1,10 +1,9 @@
 package com.kinsideapp.rcc_firebase_news.features.news.data.repository
 
-import androidx.core.view.isVisible
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import com.kinsideapp.rcc_firebase_news.core.global.FIREBASE_COLLECTION
+import com.kinsideapp.rcc_firebase_news.core.FIREBASE_COLLECTION
 import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.ArticleEntity
 import com.kinsideapp.rcc_firebase_news.features.news.domain.repository.NewsRepository
 

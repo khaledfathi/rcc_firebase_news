@@ -7,7 +7,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kinsideapp.rcc_firebase_news.R
-import com.kinsideapp.rcc_firebase_news.core.route.RouteToArticle
+import com.kinsideapp.rcc_firebase_news.core.RouteToArticle
 import com.kinsideapp.rcc_firebase_news.databinding.ArticleCardBinding
 import com.kinsideapp.rcc_firebase_news.features.news.domain.entity.ArticleEntity
 
